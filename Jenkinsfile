@@ -8,8 +8,8 @@ pipeline {
         DOCKER_COMPOSE_PATH = '/usr/local/bin/docker-compose'
         DEPENDENCY_CHECK_CACHE_DIR = '/var/jenkins_home/.m2/repository/org/owasp/dependency-check'
         MY_SECRET_KEY = 'dummy_value_for_testing'
-        TWILIO_ACCOUNT_SID = credentials('TWILIO_ACCOUNT_SID')
-        TWILIO_AUTH_TOKEN = credentials('TWILIO_AUTH_TOKEN')
+        // TWILIO_ACCOUNT_SID = credentials('TWILIO_ACCOUNT_SID')
+        // TWILIO_AUTH_TOKEN = credentials('TWILIO_AUTH_TOKEN')
         HOST_IP = '192.168.1.224' // IP of the host machine
     }
     stages {
