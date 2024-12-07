@@ -209,16 +209,18 @@ pipeline {
         }
         
         stage('Publish Lynis Report') {
-            steps {
-                publishHTML([
-                    reportName: 'Lynis Report',
-                    reportDir: '/tmp/lynis_reports',
-                    reportFiles: 'lynis-report.html',
-                    alwaysLinkToLastBuild: true,
-                    allowMissing: false
-                ])
-            }
-        }
+    steps {
+        publishHTML([
+            reportName: 'Lynis Report',
+            reportDir: '/tmp/lynis_reports',
+            reportFiles: 'lynis-report.html',
+            alwaysLinkToLastBuild: true,
+            allowMissing: false,
+            keepAll: true
+        ])
+    }
+}
+
         
         stage('Send SMS Notification') {
             steps {
