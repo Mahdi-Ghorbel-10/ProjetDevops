@@ -15,7 +15,7 @@ pipeline {
     stages {
         stage('Git Checkout') {
             steps {
-                git branch: 'MedRayenBalghouthi-5NIDS1-G1', url: 'https://github.com/MohamedKhalil-Mzali/5NIDS-G1-ProjetDevOps.git'
+                git branch: 'main', url: 'https://github.com/Mahdi-Ghorbel-10/ProjetDevops.git'
             }
         }
        
