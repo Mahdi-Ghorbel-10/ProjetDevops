@@ -230,18 +230,20 @@ pipeline {
     Commit Message: ${currentBuild.changeSets ? currentBuild.changeSets[0].items[0].msg : 'No changes'}
     Build URL: ${env.BUILD_URL}
     """
-
+   
     // Send SMS using Twilio API with curl
     sh """
-    curl 'https://api.twilio.com/2010-04-01/Accounts/${TWILIO_ACCOUNT_SID}/Messages.json' -X POST --data-urlencode 'To=+21628221389' --data-urlencode 'MessagingServiceSid=MG6f26b98c01c74e1ecef4eacb9ccd7b3e' --data-urlencode 'Body=${message}' -u ${TWILIO_ACCOUNT_SID}:${TWILIO_AUTH_TOKEN}
-"""
+    curl 'https://api.twilio.com/2010-04-01/Accounts/${TWILIO_ACCOUNT_SID}/Messages.json' -X POST \
+    --data-urlencode 'To=+21695186883' \
+    --data-urlencode 'From=+17756289470' \
+    --data-urlencode 'Body=${message}' \
+    -u ${TWILIO_ACCOUNT_SID}:${TWILIO_AUTH_TOKEN}
+    """
+}
 }
 
 
 
-        }
-    }
-        }
 
 stage('Send Email Notification') {
     steps {
@@ -360,20 +362,20 @@ stage('Send Email Notification') {
                 </html>
             """
 
-            // Send the email
+            // Send the email with updated recipient and sender
             emailext subject: subject,
                      body: body,
                      mimeType: 'text/html',
                      attachmentsPattern: 'target/site/jacoco/*.html, dependency-check-report.html, tmp/lynis_reports/lynis-report.html',
-                     to: 'rayenbal55@gmail.com'
+                     to: 'ghorbelmahdiwork@gmail.com',
+                     from: 'ghorbelmahdi10@gmail.com'
         }
     }
-post {
+    post {
         always {
             echo "Email notification sent."
         }
-}
-
+    }
 }
 
 
