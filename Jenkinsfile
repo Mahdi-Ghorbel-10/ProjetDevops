@@ -213,7 +213,7 @@ pipeline {
             }
         }
 
-        stage('Send SMS Notification') {
+        /*stage('Send SMS Notification') {
     steps {
         script {
             // Use withCredentials block to securely inject credentials
@@ -240,7 +240,7 @@ pipeline {
     -u ${TWILIO_ACCOUNT_SID}:${TWILIO_AUTH_TOKEN}
     """
 }
-}}}
+}}}*/
 
 
 
