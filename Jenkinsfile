@@ -175,7 +175,7 @@ pipeline {
     }
 }
 
-       
+       /*
         stage('Security Smoke Tests') {
             steps {
                 sh 'chmod +x ./run_security_smoke_tests.sh'
@@ -213,7 +213,7 @@ pipeline {
             }
         }
 
-        /*stage('Send SMS Notification') {
+        stage('Send SMS Notification') {
     steps {
         script {
             // Use withCredentials block to securely inject credentials
